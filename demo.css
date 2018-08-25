@@ -1,0 +1,133 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+body {
+    background-color: #dce9e7;
+    font-family: 'Raleway', Helvetica, sans-serif;
+} 
+
+header {
+    /* The color can block the main content
+    during scrolling */ 
+    background-color: #70b7f1; 
+
+    /* Fix the header to the top */
+    position: fixed;
+    top: 0;
+
+    /* The header will span thro' the screen horizontally. */
+    width: 100%;
+
+/* border: 1px solid black; */
+}
+
+#header-img {
+    /* default - no need to set */
+    /* 
+    float: none;
+    clear: none;
+    display: inline; 
+    */
+
+    /* img has a fixed size */
+    height: 50px; 
+    width: 400px;
+
+/* border: 1px solid red; */
+}
+
+nav {
+    /* float the nav bar to the right insider the header */
+    float: right;
+    clear: none;
+    display: block;
+
+    /* nav has a fixed size */
+    height: 50px;
+    width: 300px;
+
+    /* I don't need to do margin here to center <nav>
+    because it will be done by the clearfix. Doing this
+    will also make nav always sitting in the center in 
+    smaller screen. */
+
+/* border: 1px solid black; */
+}
+/* nav ul {
+border: 1px solid orangered;
+} */
+nav li {
+    /* Remove the bullet from the list */
+    list-style-type: none; 
+
+    /* float the nav li to the left in normal screen */
+    float: left;
+    clear: none;
+    display: block;
+    padding: 0px 5px 0px 5px;
+
+/* border: 1px solid red;     */
+}
+a:link, a:visited, a:hover, a:active {
+    color: black;
+    font-weight: bold;
+}
+
+.clearfix::after {
+    /* Prevent great collapse:
+    <nav> - The great collapse should not happen as it has a fix size. 
+    <nav><ul> - The great collapse will happen since no height is specified.
+    This will also set margin to the <ul> and center it. */
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+@media (max-width: 770px) {
+
+body {
+    background-color: yellow;
+} 
+
+header {
+    /* Increase the height as it needs to contains 2 lines */
+    /* height: 110px; */
+    height: auto;
+}
+
+#header-img { 
+    /* Still do not need to float, but need to change
+    from inline to block so it kicks out <nav> from 
+    the same line. */
+    float: none;
+    clear: none;
+    display: block;
+
+/* border: 1px solid black; */
+}
+
+nav {
+    /* No need to float as it now occupies it has its
+    own line under the img. display can be anything.*/    
+    float: none;    
+    clear: none;
+    display: block;
+
+    /* Together with 'nav ul', so the height won't be too much */
+    height: auto;
+
+/* border: 1px solid black; */
+}
+nav ul {
+    /* Undo the margin set by the clearfix so it won't make
+    the height too much. */
+    margin: 0px;
+}
+nav li {
+    /* Leave a little space from the bottom border */
+    padding-bottom: 2px;
+
+/* border: 1px solid red; */
+}
+
+} /* @media */
